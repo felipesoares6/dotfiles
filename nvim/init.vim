@@ -168,6 +168,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
+" flow type
+Plug 'flowtype/vim-flow'
+
 call plug#end()
 
 set background=dark
@@ -253,7 +256,7 @@ augroup FiletypeGroup
   au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
 
-let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linters = {'jsx': ['stylelint', 'eslint', 'flow'], 'javascript': ['stylelint', 'eslint', 'flow']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = { 'javascript': ['eslint'] }
 
@@ -298,3 +301,6 @@ nnoremap 0 ^
 
 inoremap <silent> <C-K> <%=  %><Esc>2hi
 inoremap <silent> <C-J> <%  %><Esc>2hi
+
+" Show the file path
+:set statusline+=%f
