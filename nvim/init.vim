@@ -136,20 +136,10 @@ Plug 'chrisbra/Colorizer'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-commentary'
 
-" autocomplete suggestions plugin
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 " linter
 Plug 'w0rp/ale'
 
 Plug 'janko-m/vim-test'
-
-" ruby plugins
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
-
-" emmet plugin
-Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'html', 'css', 'javascript', 'eruby'] }
 
 " js/jsx plugins
 Plug 'pangloss/vim-javascript'
@@ -162,11 +152,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " vimscript highlighting
 Plug 'vim-jp/syntax-vim-ex'
-
-" tmux plugins
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " flow type
 Plug 'flowtype/vim-flow'
@@ -216,11 +201,6 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 
-let is_tmux = $TMUX
-if is_tmux != ""
-  autocmd VimEnter * VtrAttachToPane
-endif
-
 " Emmet configurations
 " extends jsx and let it create jsx tags
 " example: <div className="popup"></div>
@@ -260,9 +240,6 @@ let g:ale_linters = {'jsx': ['stylelint', 'eslint', 'flow'], 'javascript': ['sty
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = { 'javascript': ['eslint'] }
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-
 if executable('rg')
   " https://elliotekj.com/2016/11/22/setup-ctrlp-to-use-ripgrep-in-vim/
   set grepprg=rg\ --color=never
@@ -278,9 +255,6 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-
-" don't let tmux zoom out if you try to go out of bounds
-let g:tmux_navigator_disable_when_zoomed = 1
 
 " Tab Shortcuts
 nnoremap tf :tabfirst<CR>
